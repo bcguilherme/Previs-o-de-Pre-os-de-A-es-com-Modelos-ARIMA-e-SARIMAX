@@ -1,41 +1,42 @@
-# Price-Sarima
+Previsão de Preços de Ações com Modelos ARIMA e SARIMAX
 
-Previsão de Séries Temporais com SARIMA
-Este é um script Python que demonstra como realizar previsões de séries temporais de preços de ações usando o modelo SARIMA (Seasonal Autoregressive Integrated Moving Average).
+Este repositório contém um notebook Colab detalhado para a previsão de preços de ações usando os modelos ARIMA (AutoARIMA) e SARIMAX. O processo abrange desde a preparação inicial dos dados até a avaliação do desempenho do modelo com o Root Mean Squared Error (RMSE).
+Conteúdo do Notebook:
 
-Resumo do Script
-Importação de Bibliotecas: O script começa importando as bibliotecas necessárias, incluindo pandas, numpy, matplotlib, seaborn, statsmodels e pmdarima.
+    Introdução
+        Importação de bibliotecas e carregamento do conjunto de dados.
 
-Carregamento dos Dados: Os dados são carregados a partir de um arquivo CSV chamado "price.csv". As primeiras linhas do conjunto de dados são exibidas, e a média dos valores "Low" e "High" é calculada e armazenada em uma nova coluna chamada "Mean".
+    Pré-processamento de Dados
+        Cálculo da média entre os preços mais baixos e mais altos.
+        Criação da coluna "Actual" com deslocamento para frente.
 
-Pré-processamento dos Dados: Uma cópia do conjunto de dados é criada para fins de previsão. Os valores da coluna "Mean" são deslocados por um número especificado de passos para criar os valores "Atuais" a serem previstos. As linhas com dados ausentes são removidas.
+    Visualização de Séries Temporais
+        Plotagem da média dos valores das ações.
+        Visualização do volume de ações vendidas.
 
-Manipulação de Datas: A coluna "Date" é convertida para o formato de data e definida como o índice do conjunto de dados.
+    Normalização dos Dados e Divisão em Conjuntos de Treino e Teste
+        Aplicação da normalização aos dados.
+        Divisão dos dados em conjuntos de treino e teste.
 
-Visualização dos Dados: O script gera gráficos usando o Matplotlib para visualizar os dados de preço das ações e o volume de negociação.
+    Análise de Séries Temporais
+        Decomposição sazonal da série temporal.
+        Verificação da estacionariedade com o teste ADF (Augmented Dickey-Fuller).
 
-Escalonamento dos Dados: O script utiliza o MinMaxScaler para dimensionar os dados de entrada e saída para um intervalo entre 0 e 1. Os dados de entrada incluem as colunas "Low", "High", "Open", "Close", "Volume", "Adj Close" e "Mean", enquanto os dados de saída são da coluna "Atual".
+    Modelagem com AutoARIMA e SARIMAX
+        Utilização do AutoARIMA para encontrar os melhores parâmetros.
+        Implementação do modelo SARIMAX com Statsmodels.
 
-Modelagem SARIMA: O modelo SARIMA é configurado com base nos parâmetros selecionados usando a função auto_arima do pmdarima. O modelo é treinado nos dados de treinamento.
+    Geração de Previsões e Avaliação do Modelo
+        Geração de previsões com o modelo treinado.
+        Avaliação do desempenho utilizando o RMSE.
 
-Previsões e Avaliação: O modelo SARIMA é usado para fazer previsões nos dados de teste. O Erro Quadrático Médio da Raiz (RMSE) é calculado para avaliar o desempenho do modelo.
+    Inversão da Normalização e Visualização dos Resultados Finais
+        Inversão da normalização para comparar os resultados com os valores reais.
 
-Visualização das Previsões: As previsões e os valores reais são plotados para visualizar o desempenho do modelo.
+Utilização:
 
-Previsões Futuras: O script realiza previsões de preços de ações futuros e as visualiza.
+    Abra o notebook no Colab para uma experiência interativa.
+    Siga cada etapa para entender e aplicar o processo de previsão de séries temporais.
+    Experimente com diferentes conjuntos de dados ou ajuste os parâmetros do modelo.
 
-Requisitos
-Python 3
-Bibliotecas Python: pandas, numpy, matplotlib, seaborn, statsmodels, pmdarima, entre outras (consulte o início do script).
-Uso
-Para executar o script, siga estas etapas:
-
-Certifique-se de ter instalado todas as bibliotecas necessárias.
-Faça o download do conjunto de dados de preços de ações e salve-o como "price.csv" no mesmo diretório do script.
-Execute o script em um ambiente Python.
-Resultados
-O script fornecerá previsões de preços de ações e avaliará o desempenho do modelo usando RMSE.
-
-Este projeto é uma demonstração básica de como aplicar modelagem SARIMA para previsões de séries temporais e pode ser estendido e aprimorado para prever preços de ações em cenários do mundo real.
-
-Nota: Certifique-se de entender os conceitos de séries temporais e os detalhes da modelagem SARIMA antes de usar este script em um contexto de negócios ou financeiro.
+Este projeto visa fornecer uma visão prática e educacional do uso de modelos ARIMA e SARIMAX na previsão de preços de ações. Sinta-se à vontade para explorar, aprender e contribuir!
